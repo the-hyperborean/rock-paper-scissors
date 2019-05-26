@@ -14,51 +14,45 @@ function play(playerSelection, computerSelection) {
   // convert inputs to Upper Case to improve simplicity
   playerSelection = playerSelection.toUpperCase(); 
   computerSelection = computerSelection.toUpperCase();
+  let result = "";
   switch(playerSelection) {
     case "ROCK": // Player selects "ROCK"
       if (computerSelection == "ROCK") {
-        return "Draw";
+        result = "Draw";
+        break;
       } else if (computerSelection == "PAPER") {
-        return "Computer Wins";
-      } else if (computerSelection == "SCISSORS") {
-        return "Player Wins";
+        result = "Computer Wins";
+        break;
+      } else if (computerSelection =="SCISSORS") {
+        result = "Player Wins";
+        break;
       }
     case "PAPER": // Player selects "PAPER"
       if (computerSelection == "ROCK") {
-        return "Player Wins";
+        result = "Player Wins";
+        break;
       } else if (computerSelection == "PAPER") {
-        return "Draw";
+        result = "Draw";
+        break;
       } else if (computerSelection == "SCISSORS" ) {
-        return "Computer Wins";
+        result = "Computer Wins";
+        break;
       }
     case "SCISSORS": // Player selects "SCISSORS"
       if (computerSelection == "ROCK") {
-        return "Computer Wins";
+        result = "Computer Wins";
+        break;
       } else if (computerSelection == "PAPER") {
-        return "Player Wins";
+        result = "Player Wins";
+        break;
       } else if (computerSelection == "SCISSORS") {
-        return "Draw";
+        result = "Draw";
+        break;
       }
   }
+
+  // Log results
+  console.log("Player Selection: " + playerSelection);
+  console.log("Computer Selection: " + computerSelection);
+  console.log("Result: " + result);
 }
-
-// Set Scoreboard Variables
-let playerScore = 0;
-let computerScore = 0;
-let drawScore = 0;
-
-// 5 Game Loop
-for (i = 0; i < 6 ; i++) {
-  if ( play("ROCK", computerPlay()) == "Computer Wins" ) {
-    computerScore += 1;
-  } else if ( play("ROCK", computerPlay()) == "Player Wins" ) {
-    playerScore += 1;
-  } else if ( play("ROCK", computerPlay()) == "Computer Wins" ) {
-    drawScore += 1;
-  };
-};
-
-// Log Scores to Console
-console.log("Computer Score: " + computerScore);
-console.log("Player Score: " + playerScore);
-console.log("Draw Score: " + drawScore);
