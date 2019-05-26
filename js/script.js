@@ -10,4 +10,26 @@ function computerPlay() {
   }
 }
 
-alert(computerPlay())
+function play(playerSelection, computerSelection) {
+  // convert inputs to Upper Case to improve simplicity
+  playerSelection = playerSelection.toUpperCase(); 
+  computerSelection = computerSelection.toUpperCase();
+  switch(playerSelection) {
+    case "ROCK": // Player selects "ROCK"
+      if (computerSelection == "ROCK") {
+        return "Draw";
+      } else if (computerSelection == "PAPER") {
+        return "Computer Wins";
+      } else if (computerSelection == "SCISSORS") {
+        return "Player Wins";
+      }
+    case "PAPER": // Player selects "PAPER"
+      if (computerSelection == "ROCK") {
+        return "Player Wins";
+      } else if (computerSelection == "PAPER") {
+        return "Draw";
+      } else if (computerSelection == "SCISSORS" ) {
+        return "Computer Wins"
+      }
+  }
+}
