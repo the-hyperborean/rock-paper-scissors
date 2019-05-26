@@ -29,7 +29,36 @@ function play(playerSelection, computerSelection) {
       } else if (computerSelection == "PAPER") {
         return "Draw";
       } else if (computerSelection == "SCISSORS" ) {
-        return "Computer Wins"
+        return "Computer Wins";
+      }
+    case "SCISSORS": // Player selects "SCISSORS"
+      if (computerSelection == "ROCK") {
+        return "Computer Wins";
+      } else if (computerSelection == "PAPER") {
+        return "Player Wins";
+      } else if (computerSelection == "SCISSORS") {
+        return "Draw";
       }
   }
 }
+
+// Set Scoreboard Variables
+let playerScore = 0;
+let computerScore = 0;
+let drawScore = 0;
+
+// 5 Game Loop
+for (i = 0; i < 6 ; i++) {
+  if ( play("ROCK", computerPlay()) == "Computer Wins" ) {
+    computerScore += 1;
+  } else if ( play("ROCK", computerPlay()) == "Player Wins" ) {
+    playerScore += 1;
+  } else if ( play("ROCK", computerPlay()) == "Computer Wins" ) {
+    drawScore += 1;
+  };
+};
+
+// Log Scores to Console
+console.log("Computer Score: " + computerScore);
+console.log("Player Score: " + playerScore);
+console.log("Draw Score: " + drawScore);
