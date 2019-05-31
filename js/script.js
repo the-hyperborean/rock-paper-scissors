@@ -100,7 +100,37 @@ function play2() {
   }
 
   // Log results
-  console.log("Player Selection: " + playerSelection);
-  console.log("Computer Selection: " + computerSelection);
-  console.log("Result: " + result);
+  // console.log("Player Selection: " + playerSelection);
+  // console.log("Computer Selection: " + computerSelection);
+  // console.log("Result: " + result);
+
+  return result;
+}
+
+function game() {
+  let playerScore = 0;
+  let computerScore = 0;
+  let drawScore = 0;
+  let round;
+  for (i = 0; i < 5; i++) {
+    round = play2()
+    if (round == "Player Wins") {
+      playerScore ++;
+    } else if (round == "Computer Wins") {
+      computerScore ++;
+    } else if (round == "Draw") {
+      drawScore ++;
+    }
+    console.log("Player Score: " + playerScore);
+    console.log("Computer Score: " + computerScore);
+    console.log("Draw Score: " + drawScore);
+  }
+  if(playerScore > computerScore) {
+    console.log("Player Wins!");
+  } else if(computerScore > playerScore) {
+    console.log("Computer Wins!");
+  } else {
+    console.log("Draw!");
+  }
+  
 }
